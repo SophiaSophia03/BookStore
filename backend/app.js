@@ -19,5 +19,5 @@ app.use("/api/users", userRouter);
 
 
 app.listen(port, () => {
-  console.log(`App is listing at port ${port}`);
+  console.log(`App is listening at port ${port}`);
 });

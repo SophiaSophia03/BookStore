@@ -24,19 +24,21 @@ const userSchema = new mongoose.Schema({
     default:"user",
     enum:["user", "admin"]
   },
-  favourites:{
+  favourites:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:"books",
-  },
-  cart:{
+  }],
+  cart:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:"books",
-  },
-  orders:{
+  }],
+  orders:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:"order",
-  },
-});
+  }],
+},
+{timestamps:true}
+);
 
 const User = mongoose.model("User", userSchema);
 
