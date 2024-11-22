@@ -3,27 +3,19 @@ if (process.env.NODE_ENV != "production") {
 }
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
-
+require("./Database/mongodb.js")
 const port = process.env.PORT;
-const dbUrl = process.env.MONGO_URL;
+
+const userRouter = require("./routes/user.js");
 
 
-// MongoDB connection setup
-const main = async () => {
-  await mongoose.connect(dbUrl);
-};
-main()
-  .then((res) => {
-    console.log("Database connection successful");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// Middleware to parse JSON
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hi I am port number 3000");
-});
+
+//Routes
+app.use("/api/users", userRouter);
+
 
 
 app.listen(port, () => {
