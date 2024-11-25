@@ -26,11 +26,11 @@ const userSchema = new mongoose.Schema({
   },
   favourites:[{
     type:mongoose.Schema.Types.ObjectId,
-    ref:"books",
+    ref:"book",
   }],
   cart:[{
     type:mongoose.Schema.Types.ObjectId,
-    ref:"books",
+    ref:"book",
   }],
   orders:[{
     type:mongoose.Schema.Types.ObjectId,
@@ -40,6 +40,6 @@ const userSchema = new mongoose.Schema({
 {timestamps:true}
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("user", userSchema);
 
 module.exports = User;

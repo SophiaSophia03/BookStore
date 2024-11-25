@@ -7,6 +7,7 @@ require("./Database/mongodb.js")
 const port = process.env.PORT;
 
 const userRouter = require("./routes/user.js");
+const bookRouter = require("./routes/book.js");
 
 
 // Middleware to parse JSON
@@ -15,7 +16,7 @@ app.use(express.json());
 
 //Routes
 app.use("/api/users", userRouter);
-
+app.use("/api/books", bookRouter);
 
 
 app.listen(port, () => {
