@@ -6,7 +6,7 @@ import About from './About'
 
 function Home() {
   return (
-    <div>
+    <div className='bg-[#82A3A1] lg:px-24 px-8 py-8 font-medium'>
       <Hero />
       <RecentBooks />
       <About />
