@@ -3,7 +3,7 @@ import heroImg from "../../assets/images/hero.png";
 
 function Hero() {
   return (
-    <div className=" h-screen md:h-[75vh] mt-8 lg:mt-0 flex flex-col md:flex-row items-center justify-center ">
+    <div className=" h-screen md:h-[75vh] mt-8 lg:mt-0 flex flex-col md:flex-row items-center justify-center">
       <div className="w-full lg:mb-0 mb-12 lg:w-3/6 flex flex-col items-center lg:items-start md:text-left text-center justify-center animate-slide-in">
         <h1 className="text-4xl lg:text-6xl font-semibold text-center lg:text-left ">
           Find Your Next Favorite Read
