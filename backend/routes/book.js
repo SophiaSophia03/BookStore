@@ -11,7 +11,7 @@ router.route("/deleteBook").delete(authenticateToken, BookController.deleteBook)
 
 router.route("/getBooks").get(BookController.getAllBooks);
 
-router.route("/recBooks").get(BookController.getRecentBooks);
+router.route("/get-recent-books").get(BookController.getRecentBooks);
 
 router.route("/bookDetails/:id").get(BookController.bookDetails);
 

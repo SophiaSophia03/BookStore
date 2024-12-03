@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 require("./Database/mongodb.js")
 const port = process.env.PORT;
+const cors = require("cors")
 
 const userRouter = require("./routes/user.js");
 const bookRouter = require("./routes/book.js");
@@ -12,6 +13,7 @@ const favRouter = require("./routes/favourites.js");
 const cartRouter = require("./routes/cart.js");
 const orderRouter = require("./routes/order.js");
 
+app.use(cors());
 
 // Middleware to parse JSON
 app.use(express.json());

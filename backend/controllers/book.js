@@ -84,7 +84,7 @@ module.exports.getAllBooks = asyncHandler(async (req, res) => {
 //get-recent-books
 module.exports.getRecentBooks = asyncHandler(async (req, res) => {
   try {
-    const recBooks = await Book.find().sort({ createdAt: -1 }).limit(5);
+    const recBooks = await Book.find().sort({ createdAt: -1 }).limit(4);
     return res
       .status(200)
       .json({ status: "Success", data: recBooks });

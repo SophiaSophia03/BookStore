@@ -17,10 +17,6 @@ function Navbar() {
       link: "/",
     },
     {
-      title: "About Us",
-      link: "/about",
-    },
-    {
       title: "Discover Books",
       link: "/books",
     },
