@@ -51,13 +51,13 @@ function Navbar() {
           <div className="md:flex hidden gap-4">
             <Link
               to={"/login"}
-              className="px-4 py-2 border-2 border-[#C4F1BE] rounded-md font-medium hover:bg-[#C4F1BE] hover:text-[#201E50] transition-all duration-500 "
+              className="px-4 py-2 border-2 border-[#82A3A1] rounded-md font-medium hover:bg-[#82A3A1] hover:text-[#201E50] transition-all duration-500 "
             >
               Login
             </Link>
             <Link
               to={"/signup"}
-              className="px-4 py-2 border-2 bg-[#C4F1BE] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#C4F1BE] transition-all duration-500 "
+              className="px-4 py-2 border-2 bg-[#82A3A1] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#82A3A1] transition-all duration-500 "
             >
               Sign Up
             </Link>
@@ -73,7 +73,7 @@ function Navbar() {
             to={items.link}
             key={i}
             onClick={handleMenuClick}
-            className={`${MobileNav} hover:text-[#C4F1BE] text-lg font-medium transition-all duration-300 cursor-pointer`}
+            className={`${MobileNav} hover:text-[#82A3A1] text-lg font-medium transition-all duration-300 cursor-pointer`}
           >
             {items.title}
             <hr></hr>
@@ -82,14 +82,14 @@ function Navbar() {
         <Link
           to={"/login"}
           onClick={handleMenuClick}
-          className={`${MobileNav} px-16 py-2 border-2 border-[#C4F1BE] rounded-md font-medium hover:bg-[#C4F1BE] hover:text-[#201E50] transition-all duration-500`}
+          className={`${MobileNav} px-16 py-2 border-2 border-[#82A3A1] rounded-md font-medium hover:bg-[#82A3A1] hover:text-[#201E50] transition-all duration-500`}
         >
           Login
         </Link>
         <Link
           to={"/signup"}
           onClick={handleMenuClick}
-          className={`${MobileNav} px-16 py-2 border-2 bg-[#C4F1BE] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#C4F1BE] transition-all duration-500`}
+          className={`${MobileNav} px-16 py-2 border-2 bg-[#82A3A1] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#82A3A1] transition-all duration-500`}
         >
           Sign Up
         </Link>
