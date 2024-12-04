@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
+import ViewBookDetails from "./components/ViewBookDetails/viewBookDetails.jsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/login" element={<Login /> }></Route>
           <Route exact path="/signup" element={<Signup />}></Route>
           <Route exact path="/profile" element={<Profile />}></Route>
+          <Route exact path="/view-book-details/:id" element={ <ViewBookDetails /> }></Route>
         </Routes>
       <Footer />
     </Router>

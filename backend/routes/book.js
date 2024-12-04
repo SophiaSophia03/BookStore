@@ -13,7 +13,7 @@ router.route("/get-all-books").get(BookController.getAllBooks);
 
 router.route("/get-recent-books").get(BookController.getRecentBooks);
 
-router.route("/bookDetails/:id").get(BookController.bookDetails);
+router.route("/view-book-details/:id").get(BookController.bookDetails);
 
 
 

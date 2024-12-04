@@ -5,8 +5,8 @@ function BookCard({data}) {
   console.log(data);
   return (
     <>
-      <Link>
-        <div className='bg-[#201E50] text-white rounded-md px-2 py-4 flex flex-col h-[100%]'>
+      <Link to={`/view-book-details/${data._id}`}>
+        <div className='bg-[#201E50] text-white rounded-md px-2 py-4 flex flex-col h-[100%] hover:scale-105 transition-all duration-1000'>
           <div className=' rounded-md flex items-center justify-center'>
             <img src={data.url} className='h-[35vh]'></img>
           </div>

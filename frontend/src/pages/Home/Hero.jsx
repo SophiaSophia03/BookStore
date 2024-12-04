@@ -1,5 +1,6 @@
 import React from "react";
 import heroImg from "../../assets/images/hero.png";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -14,9 +15,9 @@ function Hero() {
           reader or a passionate bibliophile, we've got something special
           waiting
         </p>
-        <button className="px-8 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl">
+        <Link to={"/books"} className="px-8 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl">
           Discover Books
-        </button>
+        </Link>
       </div>
       <div className="w-full lg:w-3/6 h-auto lg:h-[100%] flex items-center justify-center animate-fade-in md:mb-0 mb-12">
         <img

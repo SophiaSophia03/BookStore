@@ -2,7 +2,6 @@ import React from "react";
 import { RiCustomerServiceFill } from "react-icons/ri";
 import { RiExchangeFundsFill } from "react-icons/ri";
 import { IoIosCheckmarkCircle } from "react-icons/io";
-import DiscountVideo from "../../assets/videos/sales.mp4";
 import { Link } from "react-router-dom";
 
 function Sale() {

@@ -15,7 +15,7 @@ function RecentBooks() {
   }, [])
 
   return (
-    <div className='h-auto w-full md:mt-16 mt-16 text-center md:text-left mb-16'>
+    <div className='h-auto w-full md:mt-16 mt-16 text-center md:text-left mb-16 animate-fade-in '>
        <h3 className="text-3xl lg:text-4xl font-semibold md:mb-12">Recently Added Books</h3>
        {!Data && <div className='flex justify-center items-center my-8'> <Loader /> </div>}
        <div className='my-4 grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 '>
