@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Sale() {
   return (
-    <div className="md:h-[75vh] animate-slide-in">
+    <div className="h-auto animate-slide-in mt-16">
       <div className="w-full mt-16 text-center items-center flex flex-col md:flex-row gap-24 justify-center">
         <div className="flex flex-col gap-2 justify-center items-center ">
           <div className="text-6xl">

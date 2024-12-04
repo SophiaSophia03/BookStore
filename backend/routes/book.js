@@ -9,7 +9,7 @@ router.route("/updateBook").put(authenticateToken, BookController.updateBook);
 
 router.route("/deleteBook").delete(authenticateToken, BookController.deleteBook);
 
-router.route("/getBooks").get(BookController.getAllBooks);
+router.route("/get-all-books").get(BookController.getAllBooks);
 
 router.route("/get-recent-books").get(BookController.getRecentBooks);
 
