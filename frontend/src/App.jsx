@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar"
 import AllBooks from "./pages/AllBooks/AllBooks";
 import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home"
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
@@ -12,7 +12,6 @@ import ViewBookDetails from "./components/ViewBookDetails/viewBookDetails.jsx";
 function App() {
   return (
     <>
-    <Router>
       <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
@@ -24,7 +23,6 @@ function App() {
           <Route exact path="/view-book-details/:id" element={ <ViewBookDetails /> }></Route>
         </Routes>
       <Footer />
-    </Router>
     </>
   )
 }

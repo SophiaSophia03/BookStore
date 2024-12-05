@@ -3,8 +3,10 @@ import logoImg from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function Navbar() {
+
   const [MobileNav, setMobileNav] = useState("hidden");
 
   const handleMenuClick = () => {
@@ -29,6 +31,13 @@ function Navbar() {
       link: "/profile",
     },
   ];
+
+  const isLoggedIn =  useSelector((state) => state.auth.isLoggedIn);
+  console.log(isLoggedIn)
+  if(isLoggedIn === false){
+    links.splice(2,2)
+  }
+
   return (
     <>
       <nav className="bg-[#201E50] z-50 relative text-white px-8 py-4 items-center flex justify-between">
