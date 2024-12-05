@@ -6,12 +6,11 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 function Navbar() {
-
   const [MobileNav, setMobileNav] = useState("hidden");
 
   const handleMenuClick = () => {
-    MobileNav === "hidden" ? setMobileNav("block") : setMobileNav("hidden")
-  }
+    MobileNav === "hidden" ? setMobileNav("block") : setMobileNav("hidden");
+  };
 
   const links = [
     {
@@ -32,10 +31,10 @@ function Navbar() {
     },
   ];
 
-  const isLoggedIn =  useSelector((state) => state.auth.isLoggedIn);
-  console.log(isLoggedIn)
-  if(isLoggedIn === false){
-    links.splice(2,2)
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  console.log(isLoggedIn);
+  if (isLoggedIn === false) {
+    links.splice(2, 2);
   }
 
   return (
@@ -48,61 +47,79 @@ function Navbar() {
         <div className="nav-links items-center block md:flex gap-8">
           <div className="md:flex hidden gap-8">
             {links.map((items, i) => (
-              <Link
+              <div className="flex items-center justify-center">
+                {items.title === "Profile" ? <Link
+                to={items.link}
+                key={i}
+                className="px-8 py-2 border-2 bg-[#82A3A1] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#82A3A1] transition-all duration-500"
+              >
+                {items.title} {" "}
+              </Link>: <Link
                 to={items.link}
                 key={i}
                 className="hover:text-[#82A3A1] text-lg font-medium transition-all duration-300 cursor-pointer"
               >
                 {items.title}
-              </Link>
+              </Link>}
+              </div>
             ))}
           </div>
-          <div className="md:flex hidden gap-4">
-            <Link
-              to={"/login"}
-              className="px-4 py-2 border-2 border-[#82A3A1] rounded-md font-medium hover:bg-[#82A3A1] hover:text-[#201E50] transition-all duration-500 "
-            >
-              Login
-            </Link>
-            <Link
-              to={"/signup"}
-              className="px-4 py-2 border-2 bg-[#82A3A1] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#82A3A1] transition-all duration-500 "
-            >
-              Sign Up
-            </Link>
-          </div>
-          <button className="text-white text-xl md:hidden hover:text-zinc-500" onClick={handleMenuClick}>
+          {isLoggedIn === false && (
+  <div className="hidden md:flex gap-4">
+    <Link
+      to={"/login"}
+      className="px-8 py-2 border-2 border-[#82A3A1] rounded-md font-medium hover:bg-[#82A3A1] hover:text-[#201E50] transition-all duration-500"
+    >
+      Login
+    </Link>
+    <Link
+      to={"/signup"}
+      className="px-8 py-2 border-2 bg-[#82A3A1] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#82A3A1] transition-all duration-500"
+    >
+      Sign Up
+    </Link>
+  </div>
+)}
+          <button
+            className="text-white text-xl md:hidden hover:text-zinc-500"
+            onClick={handleMenuClick}
+          >
             <GiHamburgerMenu />
           </button>
         </div>
       </nav>
-      <div className={`${MobileNav} md:hidden bg-[#201E50] text-white text-2xl font-semibold h-[70vh] absolute top-0 left-0 w-full z-40 flex flex-col items-center justify-center gap-8`}>
-        {links.map((items, i) => (
-          <Link
-            to={items.link}
-            key={i}
-            onClick={handleMenuClick}
-            className={`${MobileNav} hover:text-[#82A3A1] text-lg font-medium transition-all duration-300 cursor-pointer`}
-          >
-            {items.title}
-            <hr></hr>
-          </Link>
-        ))}
-        <Link
-          to={"/login"}
-          onClick={handleMenuClick}
-          className={`${MobileNav} px-16 py-2 border-2 border-[#82A3A1] rounded-md font-medium hover:bg-[#82A3A1] hover:text-[#201E50] transition-all duration-500`}
-        >
-          Login
-        </Link>
-        <Link
-          to={"/signup"}
-          onClick={handleMenuClick}
-          className={`${MobileNav} px-16 py-2 border-2 bg-[#82A3A1] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#82A3A1] transition-all duration-500`}
-        >
-          Sign Up
-        </Link>
-      </div>
+      {/* Mobile View Login/Signup */}
+<div className={`${MobileNav} md:hidden bg-[#201E50] text-white text-2xl font-semibold h-[70vh] absolute top-0 left-0 w-full z-40 flex flex-col items-center justify-center gap-8`}>
+  {links.map((items, i) => (
+    <Link
+      to={items.link}
+      key={i}
+      onClick={handleMenuClick}
+      className="hover:text-[#82A3A1] text-lg font-medium transition-all duration-300 cursor-pointer"
+    >
+      {items.title}
+      <hr />
+    </Link>
+  ))}
+  {isLoggedIn === false && (
+    <>
+      <Link
+        to={"/login"}
+        onClick={handleMenuClick}
+        className="px-16 py-2 border-2 border-[#82A3A1] rounded-md font-medium hover:bg-[#82A3A1] hover:text-[#201E50] transition-all duration-500"
+      >
+        Login
+      </Link>
+      <Link
+        to={"/signup"}
+        onClick={handleMenuClick}
+        className="px-16 py-2 border-2 bg-[#82A3A1] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#82A3A1] transition-all duration-500"
+      >
+        Sign Up
+      </Link>
+    </>
+  )}
+</div>
     </>
   );
 }

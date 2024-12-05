@@ -8,8 +8,25 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
 import ViewBookDetails from "./components/ViewBookDetails/viewBookDetails.jsx";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { authActions } from "./store/auth.js";
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if(
+      localStorage.getItem("id") &&
+      localStorage.getItem("token") &&
+      localStorage.getItem("role")
+    ){
+      dispatch(authActions.login());
+      dispatch(authActions.changeRole(localStorage.getItem("role")));
+    }
+  }, [])
+
+
   return (
     <>
       <Navbar />

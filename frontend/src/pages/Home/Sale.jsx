@@ -36,7 +36,7 @@ function Sale() {
         </h1>
         <Link
           to={"/signup"}
-          className="px-16 py-2 border-2 bg-[#C4F1BE] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#C4F1BE] transition-all duration-500 ">
+          className="px-16 py-2 border-2 bg-[#82A3A1] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#C4F1BE] transition-all duration-500 ">
           Sign Up
         </Link>
       </div>
