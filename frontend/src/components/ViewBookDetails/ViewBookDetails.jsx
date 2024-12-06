@@ -3,10 +3,21 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import { GrLanguage } from "react-icons/gr";
+import { FaCartPlus } from "react-icons/fa";
+import { BsBookmarkHeartFill } from "react-icons/bs";
+import {useSelector} from "react-redux"
+import { FaTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+
 
 function ViewBookDetails() {
   const { id } = useParams();
   const [Data, setData] = useState(null);
+
+  const isLoggedIn = useSelector((state) =>  state.auth.isLoggedIn);
+  const role = useSelector((state) =>  state.auth.role);
+console.log(isLoggedIn);
+console.log(role);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +30,22 @@ function ViewBookDetails() {
     };
     fetchData();
   }, [id]);
+
+
+  const headers = {
+    id: localStorage.getItem("id"),
+    authorization: `Bearer ${localStorage.getItem("token")}`,
+    bookid: id,
+  }
+  const handleFavourite = async () => {
+    const response = await axios.put("http://localhost:3000/api/add-book-to-fav", {} ,{headers});
+    alert(response.data.message);
+  }
+
+  const handleCart = async() => {
+    const response = await axios.put("http://localhost:3000/api/add-to-cart", {} ,{headers});
+    alert(response.data.message);
+  }
 
   return (
     <>
@@ -44,6 +71,16 @@ function ViewBookDetails() {
         <p className='mt-4 text-4xl font-bold'>
           Price: ${Data.price}
         </p>
+
+        {isLoggedIn === true && role === "user" && <div className='flex items-left gap-4 flex-col md:flex-row'>
+          <button onClick={handleFavourite} className='px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4'><BsBookmarkHeartFill /> Add to Favourites</button>
+          <button onClick={handleCart} className='px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4'><FaCartPlus /> Add to Cart</button>
+        </div>}
+
+        {isLoggedIn === true && role === "admin" && <div className='flex items-left gap-4 flex-col md:flex-row'>
+          <button onClick={handleEdit} className='px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4'><FaEdit /> Edit Book Details</button>
+          <button onClick={handleDelete} className='px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4'><FaTrashAlt /> Delete Book</button>
+        </div>}
 
       </div>
     </div>)}

@@ -8,7 +8,7 @@ router.route("/signup").post(UserController.signupUser);
 
 router.route("/login").post(UserController.loginUser);
 
-router.route("/getInfo").get(authenticateToken, UserController.getUserInfo);
+router.route("/get-user-Info").get(authenticateToken, UserController.getUserInfo);
 
 router.route("/updateAddress").put(authenticateToken, UserController.updateAddress);
 

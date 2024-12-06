@@ -3,7 +3,7 @@ const router = express.Router();
 const FavController = require("../controllers/favourites.js");
 const { authenticateToken} = require("../middlewares/authMiddleware.js");
 
-router.route("/favBook").put(authenticateToken, FavController.addToFav);
+router.route("/add-book-to-fav").put(authenticateToken, FavController.addToFav);
 
 router.route("/delfavBook").delete(authenticateToken, FavController.delFromFav);
 

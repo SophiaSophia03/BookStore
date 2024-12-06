@@ -3,7 +3,7 @@ const router = express.Router();
 const CartController = require("../controllers/cart.js");
 const { authenticateToken } = require("../middlewares/authMiddleware.js");
 
-router.route("/addToCart").put(authenticateToken, CartController.addtoCart);
+router.route("/add-to-cart").put(authenticateToken, CartController.addtoCart);
 
 router.route("/delCartBook").delete(authenticateToken, CartController.delFromCart);
 

@@ -21,7 +21,7 @@ function Sidebar({ data }) {
         <div className="hidden md:block h-[2px] w-full bg-zinc-600 mt-4 mb-4"></div>
       </div>
 
-      <div className="w-full flex-col items-center justify-center hidden md:flex">
+      <div className="w-full flex-col items-center justify-center md:flex">
         <Link
           to={"/profile"}
           className="font-semibold w-full py-2 text-center hover:bg-[#201E50] hover:text-white rounded transition-all duration-500 mt-4 flex items-center justify-center gap-4"
