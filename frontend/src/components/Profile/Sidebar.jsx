@@ -10,7 +10,7 @@ import { FaArrowRightFromBracket } from "react-icons/fa6";
 function Sidebar({ data }) {
 
   return (
-    <div className="bg-[#7a9594] p-4 rounded-md flex flex-col items-center justify-around h-[100%]">
+    <div className="bg-[#7a9594] p-4 rounded-md flex flex-col items-center justify-evenly md:h-[100%]">
 
       <div className="flex flex-col items-center justify-center">
         <img src={data.avatar} className="h-[15vh]"></img>
@@ -18,7 +18,7 @@ function Sidebar({ data }) {
         <p className="text-xl font-semibold flex items-center justify-center mt-4 gap-2">
           <TfiEmail /> {data.email}
         </p>
-        <div className="hidden md:block h-[2px] w-full bg-zinc-600 mt-4 mb-4"></div>
+        <div className="block h-[2px] w-full bg-zinc-600 mt-4 mb-4"></div>
       </div>
 
       <div className="w-full flex-col items-center justify-center md:flex">
