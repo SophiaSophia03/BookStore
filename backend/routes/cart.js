@@ -5,7 +5,7 @@ const { authenticateToken } = require("../middlewares/authMiddleware.js");
 
 router.route("/add-to-cart").put(authenticateToken, CartController.addtoCart);
 
-router.route("/delCartBook").delete(authenticateToken, CartController.delFromCart);
+router.route("/delCartBook/:bookid").delete(authenticateToken, CartController.delFromCart);
 
 router.route("/getCartBooks").get(authenticateToken, CartController.getCartBooks);
 

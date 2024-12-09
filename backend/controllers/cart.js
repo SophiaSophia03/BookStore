@@ -25,7 +25,8 @@ module.exports.addtoCart = asyncHandler(async(req,res) => {
 //remove book from favourites
 module.exports.delFromCart = asyncHandler(async(req,res) => {
   try {
-    const { bookid, id } = req.headers;
+    const { id } = req.headers;
+    const { bookid } = req.params;
   const user = await User.findById(id);
   const alreadyInCart = user.cart.includes(bookid);
   if(alreadyInCart){

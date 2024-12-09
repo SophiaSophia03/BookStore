@@ -21,8 +21,8 @@ function Profile() {
   }, [])
 
   return (
-    <div className=' md:px-12 px-4 py-8 text-center md:text-left bg-[#82A3A1] flex flex-col md:flex-row gap-8 h-screen'>
-    {!Profile && <div className='flex w-full h-[100%] justify-center items-center'> <Loader /> </div> }
+    <div className=' md:px-12 px-4 py-8 text-center md:text-left bg-[#82A3A1] flex flex-col md:flex-row gap-8 h-auto'>
+    {!Profile && <div className='flex w-full h-screen justify-center items-center'> <Loader /> </div> }
     {Profile && <>
       <div className='md:w-1/6 w-full md:h-[90vh] h-auto'>
         <Sidebar data = {Profile} />
