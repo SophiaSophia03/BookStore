@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 import { FaTrashAlt} from "react-icons/fa";
 
@@ -8,6 +8,9 @@ import { FaTrashAlt} from "react-icons/fa";
 function Cart() {
   const [Cart, setCart] = useState([]);
   const [Total, setTotal] = useState(0);
+  const navigate = useNavigate();
+
+
   const headers = {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -42,7 +45,17 @@ function Cart() {
       setTotal(total.toFixed(2));
       total=0;
     }
-  }, [Cart])
+  }, [Cart]);
+
+  const placeOrder = async()=> {
+    try{
+      const response = await axios.post(`http://localhost:3000/api/placeOrders`,{order: Cart}, {headers});
+      alert(response.data.message);
+      navigate("/profile/orderHistory")
+    }catch(error){
+      console.log(error);;
+    }
+  }
 
 
   return (
@@ -112,7 +125,7 @@ function Cart() {
               <h2>$ {Total}</h2>
             </div>
             <div>
-            <button className="px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4">Place Your Order</button>
+            <button onClick={placeOrder} className="px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4">Place Your Order</button>
             </div>
           </div>
         </div>
