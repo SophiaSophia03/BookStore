@@ -1,13 +1,28 @@
 import React from "react";
 import { TfiEmail } from "react-icons/tfi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsBookmarkHeartFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { IoSettingsSharp } from "react-icons/io5";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
+import {useDispatch} from "react-redux"
+import {authActions} from "../../store/auth"
 
 
 function Sidebar({ data }) {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+
+  const submitLogout = () => {
+    dispatch(authActions.logout());
+    dispatch(authActions.changeRole("user"));
+    localStorage.clear("id");
+    localStorage.clear("token");
+    localStorage.clear("role");
+    navigate("/");
+  }
 
   return (
     <div className="bg-[#7a9594] p-4 rounded-md flex flex-col items-center justify-evenly md:h-[100%]">
@@ -45,7 +60,7 @@ function Sidebar({ data }) {
         </Link>
       </div>
       <div className="flex items-center justify-center gap-4">
-      <button className="px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4">Logout <FaArrowRightFromBracket /></button>
+      <button onClick={submitLogout} className="px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4">Logout <FaArrowRightFromBracket /></button>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ const orderSchema = new mongoose.Schema({
   status:{
     type:String,
     default:"Order Placed",
-    enum:["Order Placed","Ready for Pickup", "Order completed", "Order Cancelled"]
+    enum:["Order Placed","Out for Delivery", "Order completed", "Order Cancelled"]
   },
   user:[{
     type:mongoose.Schema.Types.ObjectId,

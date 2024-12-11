@@ -94,7 +94,7 @@ function OrderHistory() {
           <div className="text-yellow-500">{items.status}</div>
         ) : items.status === "Order Cancelled" ? (
           <div className="text-red-700">{items.status}</div>
-        ) : items.status === "Ready for Pickup" ? (
+        ) : items.status === "Out for Delivery" ? (
           <div className="text-orange-500">{items.status}</div>
         ) : (
           items.status
