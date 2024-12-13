@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import { GrLanguage } from "react-icons/gr";
 import { FaCartPlus } from "react-icons/fa";
@@ -8,16 +8,17 @@ import { BsBookmarkHeartFill } from "react-icons/bs";
 import {useSelector} from "react-redux"
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 function ViewBookDetails() {
+
+  const navigate = useNavigate();
   const { id } = useParams();
   const [Data, setData] = useState(null);
 
   const isLoggedIn = useSelector((state) =>  state.auth.isLoggedIn);
   const role = useSelector((state) =>  state.auth.role);
-console.log(isLoggedIn);
-console.log(role);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,6 +46,12 @@ console.log(role);
   const handleCart = async() => {
     const response = await axios.put("http://localhost:3000/api/add-to-cart", {} ,{headers});
     alert(response.data.message);
+  }
+
+  const handleDelete = async()=> {
+    const response = await axios.delete("http://localhost:3000/api/deleteBook", {headers});
+    alert(response.data.message);
+    navigate("/books")
   }
 
   return (
@@ -78,7 +85,7 @@ console.log(role);
         </div>}
 
         {isLoggedIn === true && role === "admin" && <div className='flex items-left gap-4 flex-col md:flex-row'>
-          <button onClick={handleEdit} className='px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4'><FaEdit /> Edit Book Details</button>
+          <Link to={`/update-book/${id}`} className='px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4'><FaEdit /> Edit Book Details</Link>
           <button onClick={handleDelete} className='px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4'><FaTrashAlt /> Delete Book</button>
         </div>}
 

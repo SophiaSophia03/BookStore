@@ -14,12 +14,12 @@ module.exports.addBooks = asyncHandler(async (req, res) => {
     }
 
     const book = new Book({
-      url: req.body.url,
       title: req.body.title,
+      url: req.body.url,
       author: req.body.author,
+      language: req.body.language,
       price: req.body.price,
       desc: req.body.desc,
-      language: req.body.language,
     });
     await book.save();
     return res.status(200).json({ message: "Book added successfuly!" });

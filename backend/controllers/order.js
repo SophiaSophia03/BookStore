@@ -67,17 +67,10 @@ module.exports.getAllOrders = asyncHandler(async (req, res) => {
 });
 
 //Order status update *admin
-module.exports.getAllOrders = asyncHandler(async (req, res) => {
+module.exports.orderStatus = asyncHandler(async (req, res) => {
   try {
-    const { orderid } = req.params;
-    const {id} = req.headers;
-    const user = await User.findById(id);
-    if (user.role !== "admin") {
-      return res
-        .status(400)
-        .json({ message: "YOu are not allowed to perform this task" });
-      }
-    await Order.findByIdAndUpdate(orderid, {status:req.body.status});
+    const { id } = req.params;
+    await Order.findByIdAndUpdate(id, {status:req.body.status});
     return res.json({
       status: "Success",
       message: "Status updated sucessfuly!"

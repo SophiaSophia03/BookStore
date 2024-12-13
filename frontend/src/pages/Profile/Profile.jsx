@@ -24,10 +24,10 @@ function Profile() {
     <div className=' md:px-12 px-4 py-8 text-center md:text-left bg-[#82A3A1] flex flex-col md:flex-row gap-8 h-auto min-h-screen'>
     {!Profile && <div className='flex w-full h-screen justify-center items-center'> <Loader /> </div> }
     {Profile && <>
-      <div className='md:w-1/6 w-full md:h-[90vh] h-auto'>
+      <div className='lg:w-1/6 w-full lg:h-[90vh] h-auto'>
         <Sidebar data = {Profile} />
       </div>
-      <div className='md:w-5/6 w-full'>
+      <div className='lg:w-5/6 w-full'>
         <Outlet />
       </div>
     </>}

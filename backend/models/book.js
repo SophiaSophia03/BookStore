@@ -1,12 +1,12 @@
 const mongoose  = require("mongoose");
 
 const bookSchema = new mongoose.Schema({
-  url:{
+  title:{
     type:String,
     required:true,
     unique:true
   },
-  title:{
+  url:{
     type:String,
     required:true,
     unique:true
@@ -14,6 +14,10 @@ const bookSchema = new mongoose.Schema({
   author:{
     type:String,
     required:true,
+  },
+  language:{
+    type:String,
+    default:"English",
   },
   price:{
     type:Number,
@@ -23,10 +27,6 @@ const bookSchema = new mongoose.Schema({
     type:String,
     required:true
   },
-  language:{
-    type:String,
-    default:"English",
-  }
 },
 {timestamps:true}
 );

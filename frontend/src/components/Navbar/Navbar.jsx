@@ -29,12 +29,22 @@ function Navbar() {
       title: "Profile",
       link: "/profile",
     },
+    {
+      title: "Admin Profile",
+      link: "/profile",
+    },
   ];
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  console.log(isLoggedIn);
+  const role = useSelector((state) => state.auth.role);
   if (isLoggedIn === false) {
-    links.splice(2, 2);
+    links.splice(2, 3);
+  }
+  if(isLoggedIn === true && role === "admin"){
+    links.splice(2,2);
+  }
+  if(isLoggedIn === true && role === "user"){
+    links.splice(4,1);
   }
 
   return (
@@ -48,7 +58,7 @@ function Navbar() {
           <div className="md:flex hidden gap-8">
             {links.map((items, i) => (
               <div className="flex items-center justify-center">
-                {items.title === "Profile" ? <Link
+                {items.title === "Profile" || items.title === "Admin Profile" ? <Link
                 to={items.link}
                 key={i}
                 className="px-8 py-2 border-2 bg-[#82A3A1] text-[#201E50] rounded-md font-medium hover:bg-[#201E50] hover:text-[#82A3A1] transition-all duration-500"

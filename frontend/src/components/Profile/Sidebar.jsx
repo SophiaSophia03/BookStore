@@ -5,14 +5,17 @@ import { BsBookmarkHeartFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { IoSettingsSharp } from "react-icons/io5";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import {authActions} from "../../store/auth"
+import { BiSolidBookAdd } from "react-icons/bi";
+
 
 
 function Sidebar({ data }) {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const role = useSelector((state) => state.auth.role);
 
 
   const submitLogout = () => {
@@ -36,7 +39,7 @@ function Sidebar({ data }) {
         <div className="block h-[2px] w-full bg-zinc-600 mt-4 mb-4"></div>
       </div>
 
-      <div className="w-full flex-col items-center justify-center md:flex">
+      {role === "user" && <div className="w-full flex-col items-center justify-center md:flex">
         <Link
           to={"/profile"}
           className="font-semibold w-full py-2 text-center hover:bg-[#201E50] hover:text-white rounded transition-all duration-500 mt-4 flex items-center justify-center gap-4"
@@ -58,7 +61,25 @@ function Sidebar({ data }) {
           <IoSettingsSharp />
           Profile Settings
         </Link>
-      </div>
+      </div>}
+
+      {role === "admin" && <div className="w-full flex-col items-center justify-center md:flex">
+        <Link
+          to={"/profile"}
+          className="font-semibold w-full py-2 text-center hover:bg-[#201E50] hover:text-white rounded transition-all duration-500 mt-4 flex items-center justify-center gap-4"
+        >
+          <TbTruckDelivery />
+          All Orders
+        </Link>
+        <Link
+          to={"/profile/add-books"}
+          className="font-semibold w-full py-2 text-center hover:bg-[#201E50] hover:text-white rounded transition-all duration-500 mt-4 flex items-center justify-center gap-4"
+        >
+          <BiSolidBookAdd />
+          Add Books
+        </Link>
+      </div>}
+
       <div className="flex items-center justify-center gap-4">
       <button onClick={submitLogout} className="px-12 py-2 bg-[#201E50] text-[#C4F1BE] rounded-md font-semibold hover:bg-[#82A3A1] hover:text-[#201E50] hover:border-2 hover:border-[#201E50] transition-all ease-in-out hover:scale-x-110 duration-1000 mt-8 text-xl flex items-center justify-center gap-4">Logout <FaArrowRightFromBracket /></button>
       </div>

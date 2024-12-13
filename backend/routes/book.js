@@ -3,9 +3,9 @@ const router = express.Router();
 const BookController = require("../controllers/book.js");
 const { authenticateToken} = require("../middlewares/authMiddleware.js");
 
-router.route("/addBooks").post(authenticateToken, BookController.addBooks);
+router.route("/add-books").post(authenticateToken, BookController.addBooks);
 
-router.route("/updateBook").put(authenticateToken, BookController.updateBook);
+router.route("/update-book").put(authenticateToken, BookController.updateBook);
 
 router.route("/deleteBook").delete(authenticateToken, BookController.deleteBook);
 
