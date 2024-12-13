@@ -91,7 +91,9 @@ function ViewBookDetails() {
 
       </div>
     </div>)}
-    {!Data && <div className='flex justify-center items-center my-8 h-screen'><Loader /></div>}
+    {!Data && <div className="flex justify-center items-center  h-screen bg-[#82A3A1]">
+          <Loader />{" "}
+        </div>}
     </>
 
   );

@@ -15,9 +15,9 @@ function AllBooks() {
   }, [])
 
   return (
-    <div className='h-auto px-12 py-8 text-center md:text-left bg-[#82A3A1] '>
+    <div className='h-auto min-h-screen px-12 py-8 text-center md:text-left bg-[#82A3A1] '>
        <h3 className="text-3xl lg:text-4xl font-semibold md:mb-12">All Books</h3>
-       {!Data && <div className='flex justify-center items-center my-8'> <Loader /> </div>}
+       {!Data && <div className='flex justify-center items-center h-screen bg-[#82A3A1]'> <Loader /> </div>}
        <div className='my-4 grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-8 '>
         {Data && Data.map((items, i) =>(<div key={i} className='text-center'> <BookCard data={items} /> {" "} </div>))}
        </div>
