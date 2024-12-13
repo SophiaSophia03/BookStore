@@ -14,7 +14,7 @@ function BookCard({ data, favourite }) {
   const handleRemoveFavBook = async () => {
     try {
       const response = await axios.delete(
-        "http://localhost:3000/api/delfavBook", // Change PUT to DELETE
+        "https://bookstore-backend-u2h5.onrender.com/api/delfavBook", // Change PUT to DELETE
         { headers }
       );
       alert(response.data.message);
@@ -29,7 +29,7 @@ function BookCard({ data, favourite }) {
   const handleCart = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:3000/api/add-to-cart",
+        "https://bookstore-backend-u2h5.onrender.com/api/add-to-cart",
         {},
         { headers }
       );

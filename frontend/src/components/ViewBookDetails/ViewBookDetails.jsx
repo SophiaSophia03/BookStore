@@ -23,7 +23,7 @@ function ViewBookDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/view-book-details/${id}`);
+        const response = await axios.get(`https://bookstore-backend-u2h5.onrender.com/api/view-book-details/${id}`);
         setData(response.data.data);
       } catch (error) {
         console.error("Error fetching book details:", error);
@@ -39,17 +39,17 @@ function ViewBookDetails() {
     bookid: id,
   }
   const handleFavourite = async () => {
-    const response = await axios.put("http://localhost:3000/api/add-book-to-fav", {} ,{headers});
+    const response = await axios.put("https://bookstore-backend-u2h5.onrender.com/api/add-book-to-fav", {} ,{headers});
     alert(response.data.message);
   }
 
   const handleCart = async() => {
-    const response = await axios.put("http://localhost:3000/api/add-to-cart", {} ,{headers});
+    const response = await axios.put("https://bookstore-backend-u2h5.onrender.com/api/add-to-cart", {} ,{headers});
     alert(response.data.message);
   }
 
   const handleDelete = async()=> {
-    const response = await axios.delete("http://localhost:3000/api/deleteBook", {headers});
+    const response = await axios.delete("https://bookstore-backend-u2h5.onrender.com/api/deleteBook", {headers});
     alert(response.data.message);
     navigate("/books")
   }

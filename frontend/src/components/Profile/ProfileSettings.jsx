@@ -13,7 +13,7 @@ function ProfileSettings() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "http://localhost:3000/api/get-user-Info",
+        "https://bookstore-backend-u2h5.onrender.com/api/get-user-Info",
         { headers }
       );
       setprofileData(response.data);
@@ -29,7 +29,7 @@ function ProfileSettings() {
 
   const submitAddress = async () => {
     const response = await axios.put(
-      "http://localhost:3000/api/updateAddress",
+      "https://bookstore-backend-u2h5.onrender.com/api/updateAddress",
       Value,
       { headers }
     );

@@ -11,7 +11,7 @@ function Favourites() {
   }
   useEffect(() => {
     const fetchData = async() => {
-      const response = await axios.get("http://localhost:3000/api/getFavBooks", {headers} );
+      const response = await axios.get("https://bookstore-backend-u2h5.onrender.com/api/getFavBooks", {headers} );
       setFavBook(response.data.data);
     }
     fetchData();

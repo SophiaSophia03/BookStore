@@ -30,7 +30,7 @@ function Signup() {
         alert("Password must be at least 6 characters!");
         return;
       }
-      const response = await axios.post("http://localhost:3000/api/signup", Values);
+      const response = await axios.post("https://bookstore-backend-u2h5.onrender.com/api/signup", Values);
       alert(response.data.message);
       navigate("/login");
     } catch (error) {

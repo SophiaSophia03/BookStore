@@ -7,7 +7,7 @@ import { Route, Routes} from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
-import ViewBookDetails from "./components/ViewBookDetails/viewBookDetails.jsx";
+import ViewBookDetails from "./components/ViewBookDetails/ViewBookDetails.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { authActions } from "./store/auth.js";

@@ -23,7 +23,7 @@ export default function AllOrders() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/getAllOrders",
+          "https://bookstore-backend-u2h5.onrender.com/api/getAllOrders",
           { headers }
         );
         setData(response.data.data);
@@ -47,7 +47,7 @@ export default function AllOrders() {
     const id = data[i]._id;
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/orderStatus/${id}`,
+        `https://bookstore-backend-u2h5.onrender.com/api/orderStatus/${id}`,
         Values,
         { headers }
       );

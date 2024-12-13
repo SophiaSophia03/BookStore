@@ -17,7 +17,7 @@ function Cart() {
   };
   useEffect(() => {
     const fetchData = async() => {
-      const response = await axios.get("http://localhost:3000/api/getCartBooks", {headers});
+      const response = await axios.get("https://bookstore-backend-u2h5.onrender.com/api/getCartBooks", {headers});
       setCart(response.data.data);
     }
     fetchData();
@@ -26,7 +26,7 @@ function Cart() {
   const handleRemoveCartBook = async(bookid) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/delCartBook/${bookid}`,
+        `https://bookstore-backend-u2h5.onrender.com/api/delCartBook/${bookid}`,
         { headers }
       );
       alert(response.data.message);
@@ -49,7 +49,7 @@ function Cart() {
 
   const placeOrder = async()=> {
     try{
-      const response = await axios.post(`http://localhost:3000/api/placeOrders`,{order: Cart}, {headers});
+      const response = await axios.post(`https://bookstore-backend-u2h5.onrender.com/api/placeOrders`,{order: Cart}, {headers});
       alert(response.data.message);
       navigate("/profile/orderHistory")
     }catch(error){

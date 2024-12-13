@@ -18,7 +18,7 @@ function UpdateBook() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/view-book-details/${id}`);
+        const response = await axios.get(`https://bookstore-backend-u2h5.onrender.com/api/view-book-details/${id}`);
         setValues(response.data.data);
       } catch (error) {
         console.error("Error fetching book details:", error);
@@ -53,7 +53,7 @@ function UpdateBook() {
         alert("All fields are required!");
       }else{
       const response = await axios.put(
-        "http://localhost:3000/api/update-book",
+        "https://bookstore-backend-u2h5.onrender.com/api/update-book",
         Values,{headers}
       );
       setValues({
