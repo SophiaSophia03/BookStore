@@ -3,7 +3,7 @@ if (process.env.NODE_ENV != "production") {
 }
 const express = require("express");
 const app = express();
-require("./Database/mongodb.js")
+require("./database/mongodb.js")
 const port = process.env.PORT;
 const cors = require("cors")
 
